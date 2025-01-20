@@ -5,7 +5,13 @@ await emptyDir("./npm");
 import denoJson from "../deno.json" with { type: "json" };
 
 await build({
-  entryPoints: Object.values(denoJson.exports).map((p) => p),
+  entryPoints: Object.entries(denoJson.exports).map((item) => {
+    return {
+      kind: "export",
+      name: item[0],
+      path: item[1],
+    };
+  }),
   outDir: "./npm",
   shims: {
     // see JS docs for overview and more options
@@ -19,7 +25,7 @@ await build({
   package: {
     // package.json properties
     name: denoJson.name,
-    version: Deno.args[0] || "1.0.0",
+    version: Deno.args[0] || "2.0.0",
     description: "Reencapsulation of Framework7 React",
     license: "MIT",
     repository: {
