@@ -1,11 +1,14 @@
 {
   "name": "@gaubee/f7-react",
+  "version": "2.1.4",
   "tasks": {
     "gen": "deno run -A ./scripts/gen.ts",
     "dnt": "deno run -A ./scripts/dnt.ts",
-    "pub": "cd npm && npm publish --access public"
+    "pub": "cd npm && npm publish --access public",
+    "npm": "deno task gen && deno task dnt && deno task pub"
   },
   "exports": {
+    "./ext/vite-plugin": "./src/vite-plugin.ts",
     "./virtual-list": "./src/components/virtual-list.ts",
     "./view": "./src/components/view.ts",
     "./typography": "./src/components/typography.ts",

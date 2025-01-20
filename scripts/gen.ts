@@ -19,7 +19,7 @@ const allComponents: ComponentItem[] = [
     f7: "actions",
     f7React: "actions-button|actions-group|actions-label|actions",
   },
-  { name: "app", f7: "", f7React: "app", custom: "app.ts" },
+  { name: "app", f7: "", f7React: "app", custom: "setup.ts" },
   { name: "area-chart", f7: "area-chart", f7React: "area-chart" },
   { name: "badge", f7: "", f7React: "badge" },
   {
@@ -248,13 +248,22 @@ const denoJsonFilename = resolveTo("../deno.json");
 const denoJson = JSON.parse(
   fs.readFileSync(denoJsonFilename, "utf-8"),
 );
-
+const extExports = Object.keys(denoJson.exports).filter((k) =>
+  k.startsWith("./ext/")
+)
+  .reduce((exports, key) => {
+    exports[key] = denoJson.exports[key];
+    return exports;
+  }, {} as Record<string, string>);
 fs.writeFileSync(
   denoJsonFilename,
   await prettier.format(
     JSON.stringify({
       ...denoJson,
-      exports: Object.fromEntries(exports),
+      exports: {
+        ...extExports,
+        ...Object.fromEntries(exports),
+      },
     }),
     { parser: "json" },
   ),

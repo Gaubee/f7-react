@@ -9,7 +9,7 @@
 export * from "framework7-react/components/app.js";
 export { default as App } from "framework7-react/components/app.js";
 
-export * from "../custom/app.ts";
+export * from "../custom/setup.ts";
 /**
  * ---
  * lang:en

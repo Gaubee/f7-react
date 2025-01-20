@@ -25,7 +25,7 @@ await build({
   package: {
     // package.json properties
     name: denoJson.name,
-    version: Deno.args[0] || "2.0.0",
+    version: Deno.args[0] || denoJson.version,
     description: "Reencapsulation of Framework7 React",
     license: "MIT",
     repository: {
