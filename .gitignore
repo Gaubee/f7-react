@@ -1,0 +1,5 @@
+deno.lock
+pnpm-lock.yaml
+docs
+npm
+node_modules
