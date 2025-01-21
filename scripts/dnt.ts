@@ -24,7 +24,7 @@ await build({
   },
   package: {
     // package.json properties
-    name: denoJson.name,
+    name: denoJson.npmName || denoJson.name,
     version: Deno.args[0] || denoJson.version,
     description: "Reencapsulation of Framework7 React",
     license: "MIT",

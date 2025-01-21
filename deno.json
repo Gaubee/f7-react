@@ -1,10 +1,11 @@
 {
   "name": "@gaubee/f7-react",
+  "npmName": "f7r",
   "version": "2.1.4",
   "tasks": {
     "gen": "deno run -A ./scripts/gen.ts",
     "dnt": "deno run -A ./scripts/dnt.ts",
-    "pub": "cd npm && npm publish --access public",
+    "pub": "deno run -A ./scripts/pub.ts",
     "npm": "deno task gen && deno task dnt && deno task pub"
   },
   "exports": {
@@ -73,5 +74,8 @@
   },
   "compilerOptions": { "jsx": "react" },
   "lint": { "rules": { "exclude": ["no-import-assign"] } },
-  "imports": { "@deno/dnt": "jsr:@deno/dnt@^0.41.3" }
+  "imports": {
+    "@deno/dnt": "jsr:@deno/dnt@^0.41.3",
+    "@std/fmt": "jsr:@std/fmt@^1.0.4"
+  }
 }
