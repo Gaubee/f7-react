@@ -47,7 +47,7 @@ const allComponents: ComponentItem[] = [
     f7React: "fab-backdrop|fab-button|fab-buttons|fab",
   },
   { name: "gauge", f7: "gauge", f7React: "gauge" },
-  { name: "icon", f7: "", f7React: "icon" },
+  { name: "icon", f7: "", f7React: "icon", custom: "icon.tsx" },
   { name: "input", f7: "input", f7React: "list-input|input" },
   { name: "link", f7: "", f7React: "link" },
   {
@@ -130,6 +130,7 @@ const allComponents: ComponentItem[] = [
   { name: "typography", f7: "typography", f7React: "" },
   { name: "dialog", f7: "dialog", types: "Dialog", custom: "dialog.ts" },
   { name: "toast", f7: "toast", custom: "toast.ts" },
+  { name: "router", custom: "safe-router/mod.ts" },
 ];
 
 const parse = (str: string) => {

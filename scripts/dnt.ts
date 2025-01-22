@@ -3,6 +3,8 @@ import { build, emptyDir } from "@deno/dnt";
 
 await emptyDir("./npm");
 import denoJson from "../deno.json" with { type: "json" };
+import fs from "node:fs";
+import path from "node:path";
 
 await build({
   entryPoints: Object.entries(denoJson.exports).map((item) => {
@@ -40,5 +42,13 @@ await build({
     // steps to run after building and before running the tests
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
     Deno.copyFileSync("README.md", "npm/README.md");
+    const packageJson = JSON.parse(
+      fs.readFileSync("npm/package.json", "utf-8"),
+    );
+    if (packageJson.dependencies["vite"]) {
+      packageJson.peerDependencies["vite"] = ">= 5";
+      delete packageJson.dependencies["vite"];
+    }
+    fs.writeFileSync("npm/package.json", JSON.stringify(packageJson, null, 2));
   },
 });

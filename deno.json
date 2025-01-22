@@ -9,7 +9,7 @@
     "npm": "deno task gen && deno task dnt && deno task pub"
   },
   "exports": {
-    "./ext/vite-plugin": "./src/vite-plugin.ts",
+    "./ext/vite-plugin": "./src/vite-plugin/mod.ts",
     "./virtual-list": "./src/components/virtual-list.ts",
     "./view": "./src/components/view.ts",
     "./typography": "./src/components/typography.ts",
@@ -29,6 +29,7 @@
     "./sheet": "./src/components/sheet.ts",
     "./segmented": "./src/components/segmented.ts",
     "./searchbar": "./src/components/searchbar.ts",
+    "./router": "./src/components/router.ts",
     "./routable-modals": "./src/components/routable-modals.ts",
     "./range": "./src/components/range.ts",
     "./radio": "./src/components/radio.ts",
@@ -72,8 +73,10 @@
     "./accordion": "./src/components/accordion.ts",
     ".": "./src/index.ts"
   },
-  "compilerOptions": { "jsx": "react" },
-  "lint": { "rules": { "exclude": ["no-import-assign"] } },
+  "compilerOptions": { "jsx": "react", "lib": ["deno.ns", "dom"] },
+  "lint": {
+    "rules": { "exclude": ["no-import-assign", "verbatim-module-syntax"] }
+  },
   "imports": {
     "@deno/dnt": "jsr:@deno/dnt@^0.41.3",
     "@std/fmt": "jsr:@std/fmt@^1.0.4"
