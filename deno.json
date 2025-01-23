@@ -1,7 +1,7 @@
 {
   "name": "@gaubee/f7-react",
   "npmName": "f7r",
-  "version": "2.1.4",
+  "version": "2.2.0",
   "tasks": {
     "gen": "deno run -A ./scripts/gen.ts",
     "dnt": "deno run -A ./scripts/dnt.ts",
@@ -9,7 +9,9 @@
     "npm": "deno task gen && deno task dnt && deno task pub"
   },
   "exports": {
-    "./ext/vite-plugin": "./src/vite-plugin/mod.ts",
+    "./plugin/vite": "./src/plugin/vite.ts",
+    "./plugin/postcss": "./src/plugin/postcss.ts",
+    "./plugin/tailwindcss": "./src/plugin/tailwindcss.ts",
     "./virtual-list": "./src/components/virtual-list.ts",
     "./view": "./src/components/view.ts",
     "./typography": "./src/components/typography.ts",

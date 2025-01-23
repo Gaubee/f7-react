@@ -1,3 +1,10 @@
-@tailwind base;
+@import "tailwindcss";
+@config "../tailwind.config.mts";
+
+/* @tailwind base;
 @tailwind components;
-@tailwind utilities;
+@tailwind utilities; */
+
+body{
+    font-family:'Courier New', Courier, monospace;
+}

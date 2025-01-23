@@ -3,6 +3,7 @@ import { build, emptyDir } from "@deno/dnt";
 
 await emptyDir("./npm");
 import denoJson from "../deno.json" with { type: "json" };
+import packageJson from "../package.json" with { type: "json" };
 import fs from "node:fs";
 import path from "node:path";
 
@@ -19,7 +20,7 @@ await build({
     // see JS docs for overview and more options
     deno: false,
   },
-  packageManager: "pnpm",
+  packageManager: "yarn",
   scriptModule: false,
   compilerOptions: {
     target: "Latest",
@@ -37,18 +38,12 @@ await build({
     bugs: {
       url: "https://github.com/gaubee/f7-react/issues",
     },
+    dependencies: packageJson.dependencies,
+    peerDependencies: packageJson.peerDependencies,
   },
   postBuild() {
     // steps to run after building and before running the tests
     Deno.copyFileSync("LICENSE", "npm/LICENSE");
     Deno.copyFileSync("README.md", "npm/README.md");
-    const packageJson = JSON.parse(
-      fs.readFileSync("npm/package.json", "utf-8"),
-    );
-    if (packageJson.dependencies["vite"]) {
-      packageJson.peerDependencies["vite"] = ">= 5";
-      delete packageJson.dependencies["vite"];
-    }
-    fs.writeFileSync("npm/package.json", JSON.stringify(packageJson, null, 2));
   },
 });

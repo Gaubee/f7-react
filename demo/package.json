@@ -10,10 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "react-dom": "18",
-    "f7r": "workspace:*"
+    "f7r": "workspace:*",
+    "react-dom": "18"
   },
   "devDependencies": {
-    "tailwindcss": "^3.4.17"
+    "@tailwindcss/postcss": "^4.0.0",
+    "vite": "^6.0.10"
   }
 }

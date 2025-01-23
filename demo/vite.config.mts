@@ -1,5 +1,5 @@
 import { defineConfig } from "vite";
-import { materialSymbolGeneratorPlugin } from "../src/vite-plugin/mod.ts";
+import f7c from "f7r/plugin/vite";
 
 export default defineConfig((_env) => {
   return {
@@ -7,10 +7,16 @@ export default defineConfig((_env) => {
       port: 28900,
     },
     build: {
+      target: "chrome92",
+      cssTarget: "chrome92",
+      cssCodeSplit: true,
+      cssMinify: false,
       rollupOptions: {
         input: "./index.html",
       },
     },
-    plugins: [materialSymbolGeneratorPlugin()],
+    plugins: [
+      f7c(),
+    ],
   };
 });
