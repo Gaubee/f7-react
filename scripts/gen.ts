@@ -30,8 +30,7 @@ const allComponents: ComponentItem[] = [
   {
     name: "breadcrumbs",
     f7: "breadcrumbs",
-    f7React:
-      "breadcrumbs-collapsed|breadcrumbs-item|breadcrumbs-separator|breadcrumbs",
+    f7React: "breadcrumbs-collapsed|breadcrumbs-item|breadcrumbs-separator|breadcrumbs",
   },
   { name: "button", f7: "", f7React: "button" },
   {
@@ -137,10 +136,7 @@ const parse = (str: string) => {
   const url = new URL(`data:${str}`);
   return {
     name: url.pathname,
-    caseName: url.pathname.replace(/^[a-z]/, (c) => c.toUpperCase()).replace(
-      /-(.)/g,
-      (_, c) => c.toUpperCase(),
-    ),
+    caseName: url.pathname.replace(/^[a-z]/, (c) => c.toUpperCase()).replace(/-(.)/g, (_, c) => c.toUpperCase()),
     params: url.searchParams,
   };
 };
@@ -151,8 +147,7 @@ const boolean = (str: string | null | undefined, defaultValue: boolean) => {
   }
   return str === "true";
 };
-const resolveTo = (...paths: string[]) =>
-  path.resolve(import.meta.dirname, ...paths);
+const resolveTo = (...paths: string[]) => path.resolve(import.meta.dirname, ...paths);
 const exports: Array<[string, string]> = [
   [".", "./src/index.ts"],
   // ["./source/*", resolveTo("../../../node_modules/framework7/*")],
@@ -172,10 +167,10 @@ for (const { name, f7, f7React, types, custom } of allComponents) {
       return `
         ${enableCss ? `import 'framework7/components/${f7}/css';` : ""}
         ${
-        enableExportJs
-          ? `export type { ${info.caseName} as $${info.caseName} } from 'framework7/components/${f7}';`
-          : ""
-      }
+          enableExportJs
+            ? `export type { ${info.caseName} as $${info.caseName} } from 'framework7/components/${f7}';`
+            : ""
+        }
         import ${moduleName} from 'framework7/components/${f7}';
         await f7.loadModule(${moduleName});
         `;
@@ -197,23 +192,21 @@ for (const { name, f7, f7React, types, custom } of allComponents) {
     .filter(Boolean)
     .map((typeName) => `export type {${typeName}} from 'framework7/types'`);
 
-  const customCode = custom
-    ?.split("|")
-    .filter(Boolean)
-    .map((customName) => {
-      const info = parse(customName);
-      const enableInline = boolean(info.params.get("inline"), false);
-      customName = info.name;
-      if (enableInline) {
-        const customCode = fs.readFileSync(
-          resolveTo(`../src/custom/${customName}.ts`),
-          "utf-8",
-        );
-        return customCode;
-      }
+  const customCode =
+    custom
+      ?.split("|")
+      .filter(Boolean)
+      .map((customName) => {
+        const info = parse(customName);
+        const enableInline = boolean(info.params.get("inline"), false);
+        customName = info.name;
+        if (enableInline) {
+          const customCode = fs.readFileSync(resolveTo(`../src/custom/${customName}.ts`), "utf-8");
+          return customCode;
+        }
 
-      return `export * from '../custom/${customName}';`;
-    }) ?? [];
+        return `export * from '../custom/${customName}';`;
+      }) ?? [];
 
   const fileCode = [
     `/**
@@ -246,16 +239,16 @@ for (const { name, f7, f7React, types, custom } of allComponents) {
 exports.sort((a, b) => b[0].localeCompare(a[0]));
 
 const denoJsonFilename = resolveTo("../deno.json");
-const denoJson = JSON.parse(
-  fs.readFileSync(denoJsonFilename, "utf-8"),
-);
-const extExports = Object.keys(denoJson.exports).filter((k) =>
-  k.startsWith("./ext/")
-)
-  .reduce((exports, key) => {
-    exports[key] = denoJson.exports[key];
-    return exports;
-  }, {} as Record<string, string>);
+const denoJson = JSON.parse(fs.readFileSync(denoJsonFilename, "utf-8"));
+const extExports = Object.keys(denoJson.exports)
+  .filter((k) => k.startsWith("./ext/") || k.startsWith("./plugin/"))
+  .reduce(
+    (exports, key) => {
+      exports[key] = denoJson.exports[key];
+      return exports;
+    },
+    {} as Record<string, string>,
+  );
 fs.writeFileSync(
   denoJsonFilename,
   await prettier.format(
