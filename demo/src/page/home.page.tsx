@@ -15,6 +15,7 @@ export default () => {
       <MsIcon name="msi-face" className="text-6xl msv-wght-100 hover:msv-wght-700 duration-150" />
       <MsIcon name="msi-10k" className="text-6xl msv-wght-100 hover:msv-wght-700 duration-150" />
       <MsIcon name="msi-123" className="text-6xl msv-wght-100 hover:msv-wght-700 duration-150" />
+      <MsIcon name="msi-function" className="text-6xl msv-wght-100 hover:msv-wght-700 duration-150" />
       <MsIcon name="msi-radio_button_checked" className="text-6xl msv-wght-100 hover:msv-wght-700 duration-150" />
       <MsIcon name="msi-radio_button_unchecked" className="text-6xl msv-wght-100 hover:msv-wght-700 duration-150" />
       <MsIcon name="msi-password" className="text-6xl msv-wght-100 hover:msv-wght-700 duration-150" />

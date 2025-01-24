@@ -1,7 +1,7 @@
 {
   "name": "@gaubee/f7-react",
   "npmName": "f7r",
-  "version": "2.2.1",
+  "version": "2.2.3",
   "tasks": {
     "gen": "deno run -A ./scripts/gen.ts",
     "dnt": "deno run -A ./scripts/dnt.ts",
@@ -75,7 +75,11 @@
     "./accordion": "./src/components/accordion.ts",
     ".": "./src/index.ts"
   },
-  "compilerOptions": { "jsx": "react", "lib": ["deno.ns", "dom"] },
+  "compilerOptions": {
+    "jsx": "react",
+    "lib": ["deno.ns", "dom"],
+    "types": ["node"]
+  },
   "lint": {
     "rules": { "exclude": ["no-import-assign", "verbatim-module-syntax"] }
   },

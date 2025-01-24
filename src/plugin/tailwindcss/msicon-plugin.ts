@@ -1,25 +1,12 @@
-import process from "node:process";
-import { formatWithOptions } from "node:util";
+import Debug from "debug";
 import createPlugin from "tailwindcss/plugin";
 import { materialSymbolNames as all_symbols } from "../../custom/icon.types.ts";
+const debug = Debug("f7r:tailwindcss");
 
 type PluginWithOptions<T> = ReturnType<typeof createPlugin.withOptions<T>>;
 export const msiconPlugin: PluginWithOptions<void> = createPlugin.withOptions<void>(
   () =>
     ({ matchUtilities, addUtilities }) => {
-      const isVite = !process.argv[1]?.endsWith("tailwindServer.js");
-      const log = isVite
-        ? (...args: unknown[]) =>
-            console.info(
-              formatWithOptions(
-                {
-                  colors: true,
-                },
-                ...args,
-              ),
-            )
-        : () => {};
-
       const numValues = (min: number, max: number, step: number) => {
         const res: Record<string, string> = {};
         for (let v = min; v <= max; v += step) {
@@ -32,7 +19,7 @@ export const msiconPlugin: PluginWithOptions<void> = createPlugin.withOptions<vo
       matchUtilities(
         {
           "msv-opsz": (value, extra) => {
-            log("msv-opsz", value, extra);
+            debug("msv-opsz", value, extra);
             return {
               fontVariationSettings: `"opsz" ${value}`,
             };
@@ -47,7 +34,7 @@ export const msiconPlugin: PluginWithOptions<void> = createPlugin.withOptions<vo
       matchUtilities(
         {
           "msv-fill": (value, extra) => {
-            log("msv-fill", value, extra);
+            debug("msv-fill", value, extra);
             return {
               fontVariationSettings: `"FILL" ${value}`,
             };
@@ -62,7 +49,7 @@ export const msiconPlugin: PluginWithOptions<void> = createPlugin.withOptions<vo
       matchUtilities(
         {
           "msv-grad": (value, extra) => {
-            log("msv-grad", value, extra);
+            debug("msv-grad", value, extra);
             return {
               fontVariationSettings: `"GRAD" ${value}`,
             };
@@ -77,7 +64,7 @@ export const msiconPlugin: PluginWithOptions<void> = createPlugin.withOptions<vo
       matchUtilities(
         {
           "msv-wght": (value, extra) => {
-            log("msv-wght", value, extra);
+            debug("msv-wght", value, extra);
             return {
               fontVariationSettings: `"wght" ${value}`,
             };
