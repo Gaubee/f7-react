@@ -11,6 +11,7 @@
     "@types/debug": "^4.1.12",
     "@types/node": "^22.10.7",
     "@types/react": "^19.0.7",
+    "@types/subset-font": "^2.3.0",
     "postcss": "^8.5.1",
     "prettier": "^3.4.2",
     "prettier-plugin-organize-imports": "^4.1.0",
@@ -31,6 +32,7 @@
     "esm": "^3.2.25",
     "framework7": "^8.3.4",
     "framework7-react": "^8.3.4",
+    "subset-font": "^2.4.0",
     "swiper": "^10.2.0",
     "zod": "^3.24.1"
   }
