@@ -5,6 +5,9 @@
 @tailwind components;
 @tailwind utilities; */
 
-body{
-    font-family:'Courier New', Courier, monospace;
+body {
+  font-family: "Courier New", Courier, monospace;
 }
+/* .f7-icons {
+  font-family: "framework7-core-icons";
+} */

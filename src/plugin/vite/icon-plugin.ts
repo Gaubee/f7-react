@@ -6,7 +6,7 @@ import process from "node:process";
 import { formatWithOptions } from "node:util";
 import postcss from "postcss";
 import type { Plugin } from "vite";
-import { MaterialSymbolName, materialSymbolNameParser, MaterialSymbolType } from "../../custom/icon.types.ts";
+import { MaterialSymbolName, materialSymbolNameParser, MaterialSymbolType } from "../../custom/icon/ms-icon.types.ts";
 
 export type MaterialSymbolGeneratorPluginOptions = {
   tailwindFilename?: string;

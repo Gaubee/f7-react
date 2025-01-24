@@ -1,6 +1,6 @@
 import Debug from "debug";
 import createPlugin from "tailwindcss/plugin";
-import { materialSymbolNames as all_symbols } from "../../custom/icon.types.ts";
+import { materialSymbolNames as all_symbols } from "../../custom/icon/ms-icon.types.ts";
 const debug = Debug("f7r:tailwindcss");
 
 type PluginWithOptions<T> = ReturnType<typeof createPlugin.withOptions<T>>;

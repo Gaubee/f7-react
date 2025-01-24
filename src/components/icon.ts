@@ -9,7 +9,7 @@
 export * from "framework7-react/components/icon.js";
 export { default as Icon } from "framework7-react/components/icon.js";
 
-export * from "../custom/icon.tsx";
+export * from "../custom/icon.ts";
 /**
  * ---
  * lang:en

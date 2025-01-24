@@ -46,7 +46,7 @@ const allComponents: ComponentItem[] = [
     f7React: "fab-backdrop|fab-button|fab-buttons|fab",
   },
   { name: "gauge", f7: "gauge", f7React: "gauge" },
-  { name: "icon", f7: "", f7React: "icon", custom: "icon.tsx" },
+  { name: "icon", f7: "", f7React: "icon", custom: "icon.ts" },
   { name: "input", f7: "input", f7React: "list-input|input" },
   { name: "link", f7: "", f7React: "link" },
   {

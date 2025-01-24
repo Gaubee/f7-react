@@ -7,7 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import type { Plugin, PluginCreator } from "postcss";
-import { MaterialSymbolName, materialSymbolNameParser, MaterialSymbolType } from "../../custom/icon.types.ts";
+import { MaterialSymbolName, materialSymbolNameParser, MaterialSymbolType } from "../../custom/icon/ms-icon.types.ts";
 import { cacheDownloader } from "./cache-download.ts";
 
 const debug = Debug("f7r:postcss");

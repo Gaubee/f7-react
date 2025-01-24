@@ -6,6 +6,10 @@ export default defineConfig((_env) => {
     server: {
       port: 28900,
     },
+    preview: {
+      port: 28900,
+      host: "0.0.0.0",
+    },
     build: {
       target: "chrome92",
       cssTarget: "chrome92",
@@ -15,8 +19,6 @@ export default defineConfig((_env) => {
         input: "./index.html",
       },
     },
-    plugins: [
-      f7c(),
-    ],
+    plugins: [f7c()],
   };
 });
