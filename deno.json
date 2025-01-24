@@ -1,7 +1,7 @@
 {
   "name": "@gaubee/f7-react",
   "npmName": "f7r",
-  "version": "2.2.3",
+  "version": "2.2.4",
   "tasks": {
     "gen": "deno run -A ./scripts/gen.ts",
     "dnt": "deno run -A ./scripts/dnt.ts",
