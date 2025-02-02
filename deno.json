@@ -77,7 +77,7 @@
   },
   "compilerOptions": {
     "jsx": "react",
-    "lib": ["deno.ns", "dom"],
+    "lib": ["deno", "dom"],
     "types": ["node"]
   },
   "lint": {

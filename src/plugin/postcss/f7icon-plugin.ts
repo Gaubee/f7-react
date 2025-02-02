@@ -2,30 +2,10 @@ import subsetFont from "subset-font";
 import path from "node:path";
 import fs from "node:fs";
 const f7iconWoff2 = path.resolve(import.meta.dirname!, "../../assets/Framework7Icons-Regular.woff2");
+// import {f7IconNames}from '../../custom/icon/f7-icon.types.ts'
 const subsetBuffer = await subsetFont(
   fs.readFileSync(f7iconWoff2),
-  `airplane
-chevron_right
-chevron_left_ios
-chevron_right_ios
-arrow_left_md
-arrow_right_md
-chevron_right_md
-chevron_left_md
-sort_ios
-sort_md
-delete_round_ios
-delete_round_md
-checkbox_ios
-checkbox_md
-radio_ios
-arrow_bottom_md
-search_ios
-search_md
-prev
-next
-notification_close_ios
-delete_round_md`,
+  Array.from({length:100},(_,index)=>String.fromCharCode(0xe001 + index)).join(""),
   {
     targetFormat: "woff2",
   },

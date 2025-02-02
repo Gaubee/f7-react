@@ -1,6 +1,6 @@
-export * from "./vite/css-plugin.ts";
+export * from "./vite/f7css-plugin.ts";
 // export * from "./icon-plugin.ts";
-import { framework7CssPlugin } from "./vite/css-plugin.ts";
+import { framework7CssPlugin } from "./vite/f7css-plugin.ts";
 export default framework7CssPlugin;
 // import {
 //   materialSymbolGeneratorPlugin,

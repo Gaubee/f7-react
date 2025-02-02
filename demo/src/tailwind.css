@@ -8,6 +8,41 @@
 body {
   font-family: "Courier New", Courier, monospace;
 }
-/* .f7-icons {
-  font-family: "framework7-core-icons";
-} */
+
+@font-face {
+  font-family: "Framework7 Icons";
+  font-style: normal;
+  font-weight: 400;
+  src:
+    local("Framework7 Icons"),
+    local("Framework7Icons-Regular"),
+    url("/icons/framework7-icon.gen/Framework7Icons.woff2") format("woff2");
+}
+
+.f7-icons,
+.framework7-icons {
+  font-family: "Framework7 Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-feature-settings: "liga";
+  -moz-font-feature-settings: "liga=1";
+  -moz-font-feature-settings: "liga";
+  font-feature-settings: "liga";
+}
+
+.tooltip {
+  backdrop-filter: blur(10px) contrast(1.5);
+  --f7-tooltip-bg-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px -1px #000000;
+}

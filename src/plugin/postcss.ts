@@ -1,3 +1,3 @@
-export * from "./postcss/icon-plugin.ts";
-import { materialSymbolGeneratorPlugin } from "./postcss/icon-plugin.ts";
+export * from "./postcss/msicon-plugin.ts";
+import { materialSymbolGeneratorPlugin } from "./postcss/msicon-plugin.ts";
 export default materialSymbolGeneratorPlugin;
